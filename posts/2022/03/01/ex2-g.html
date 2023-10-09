@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>拓扑排序 | Akejyo-bolg</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/blog/HP/logo-nav.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.7e6ff6a1.css" as="style"><link rel="preload" href="/blog/assets/js/app.10530e5b.js" as="script"><link rel="preload" href="/blog/assets/js/7.3944018b.js" as="script"><link rel="preload" href="/blog/assets/js/44.0b4f7ef4.js" as="script"><link rel="preload" href="/blog/assets/js/4.bcd292e7.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.e84896b2.js"><link rel="prefetch" href="/blog/assets/js/11.58cc8d34.js"><link rel="prefetch" href="/blog/assets/js/12.f13297e1.js"><link rel="prefetch" href="/blog/assets/js/13.8814e4cf.js"><link rel="prefetch" href="/blog/assets/js/14.8db0c612.js"><link rel="prefetch" href="/blog/assets/js/15.a16117b8.js"><link rel="prefetch" href="/blog/assets/js/16.2ce801eb.js"><link rel="prefetch" href="/blog/assets/js/17.92b6c2d6.js"><link rel="prefetch" href="/blog/assets/js/18.246f49ec.js"><link rel="prefetch" href="/blog/assets/js/19.bf52017f.js"><link rel="prefetch" href="/blog/assets/js/2.23f5757f.js"><link rel="prefetch" href="/blog/assets/js/20.2c61a476.js"><link rel="prefetch" href="/blog/assets/js/21.95161752.js"><link rel="prefetch" href="/blog/assets/js/22.3d64a7d0.js"><link rel="prefetch" href="/blog/assets/js/23.fd64066b.js"><link rel="prefetch" href="/blog/assets/js/24.c221315b.js"><link rel="prefetch" href="/blog/assets/js/25.a3c49f47.js"><link rel="prefetch" href="/blog/assets/js/26.fa47475f.js"><link rel="prefetch" href="/blog/assets/js/27.cc46748a.js"><link rel="prefetch" href="/blog/assets/js/28.6449a686.js"><link rel="prefetch" href="/blog/assets/js/29.6166c3d9.js"><link rel="prefetch" href="/blog/assets/js/3.cb12477a.js"><link rel="prefetch" href="/blog/assets/js/30.972d9d0e.js"><link rel="prefetch" href="/blog/assets/js/31.57e81435.js"><link rel="prefetch" href="/blog/assets/js/32.e8e65424.js"><link rel="prefetch" href="/blog/assets/js/33.e3f83f53.js"><link rel="prefetch" href="/blog/assets/js/34.6a4b71bf.js"><link rel="prefetch" href="/blog/assets/js/35.ceafe2cd.js"><link rel="prefetch" href="/blog/assets/js/36.e8342154.js"><link rel="prefetch" href="/blog/assets/js/37.4cfe3598.js"><link rel="prefetch" href="/blog/assets/js/38.65fda662.js"><link rel="prefetch" href="/blog/assets/js/39.45d5da3c.js"><link rel="prefetch" href="/blog/assets/js/40.95a89642.js"><link rel="prefetch" href="/blog/assets/js/41.2c4a78ca.js"><link rel="prefetch" href="/blog/assets/js/42.3ecf1fdb.js"><link rel="prefetch" href="/blog/assets/js/43.86b79842.js"><link rel="prefetch" href="/blog/assets/js/45.0f0a5b88.js"><link rel="prefetch" href="/blog/assets/js/46.1a47a1a3.js"><link rel="prefetch" href="/blog/assets/js/47.21c3b18b.js"><link rel="prefetch" href="/blog/assets/js/48.04adba19.js"><link rel="prefetch" href="/blog/assets/js/49.3a9e669c.js"><link rel="prefetch" href="/blog/assets/js/5.c472a316.js"><link rel="prefetch" href="/blog/assets/js/50.b659aae6.js"><link rel="prefetch" href="/blog/assets/js/51.6d144a5e.js"><link rel="prefetch" href="/blog/assets/js/52.c5cccc0a.js"><link rel="prefetch" href="/blog/assets/js/53.ceda580a.js"><link rel="prefetch" href="/blog/assets/js/54.ff5d303e.js"><link rel="prefetch" href="/blog/assets/js/55.636c12ba.js"><link rel="prefetch" href="/blog/assets/js/56.6dfdc6a0.js"><link rel="prefetch" href="/blog/assets/js/57.4fe2dc90.js"><link rel="prefetch" href="/blog/assets/js/58.43e2f095.js"><link rel="prefetch" href="/blog/assets/js/59.20472e59.js"><link rel="prefetch" href="/blog/assets/js/6.1454379f.js"><link rel="prefetch" href="/blog/assets/js/60.bf130f9c.js"><link rel="prefetch" href="/blog/assets/js/61.0dbc324c.js"><link rel="prefetch" href="/blog/assets/js/62.3c327d75.js"><link rel="prefetch" href="/blog/assets/js/63.18307000.js"><link rel="prefetch" href="/blog/assets/js/64.202854be.js"><link rel="prefetch" href="/blog/assets/js/65.72b47f55.js"><link rel="prefetch" href="/blog/assets/js/66.2fbc53c6.js"><link rel="prefetch" href="/blog/assets/js/67.c7818724.js"><link rel="prefetch" href="/blog/assets/js/68.da91b0f0.js"><link rel="prefetch" href="/blog/assets/js/69.ec9f0a50.js"><link rel="prefetch" href="/blog/assets/js/70.4ddb1360.js"><link rel="prefetch" href="/blog/assets/js/71.2c3d7701.js"><link rel="prefetch" href="/blog/assets/js/72.339854a5.js"><link rel="prefetch" href="/blog/assets/js/73.9f71d845.js"><link rel="prefetch" href="/blog/assets/js/8.2d0a2e85.js"><link rel="prefetch" href="/blog/assets/js/9.e72484c0.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.7e6ff6a1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="global-layout" data-v-7f2e4136><header class="header-container" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/blog/HP/p3.JPG);" data-v-93921ff8 data-v-7f2e4136><nav class="navbar" style="position:absolute;opacity:1;transition:all 0.5s ease-in-out;" data-v-93921ff8><a href="/blog/" class="navbar-link router-link-active">
+    Akejyo Blog
+  </a> <ul class="navbar-links"><li><a href="/blog/" class="router-link-active">
+        Home
+      </a></li><li><a href="/blog/about/">
+        ABOUT
+      </a></li><li><a href="/blog/tags/">
+        TAGS
+      </a></li></ul> <div id="nav-icon"><span></span><span></span><span></span></div></nav> <div class="header-title" data-v-93921ff8 data-v-93921ff8><h1 data-v-93921ff8>拓扑排序</h1> <p data-v-93921ff8></p></div></header> <div class="container" data-v-b3fda33c data-v-7f2e4136><main class="main" style="width:60%;" data-v-b3fda33c><div class="post" data-v-b3fda33c data-v-b3fda33c><article class="main-div"><div class="post-content content content__default"><p>拓扑排序</p> <h1 id="ex2-拓扑排序"><a href="#ex2-拓扑排序" class="header-anchor">#</a> EX2.拓扑排序</h1> <p>Animals are waiting in a line, in a quarantine zone, before they can enter a hunting-free area, where they will find an easier life.</p> <p>When entering the quarantine zone, animals have to check in with a guard. The guard writes down the animal species, and then the animal is allowed to join the end of the line, in the last position. At the other end of the line, animals have to check out: when the animal in the first position in the line is finally allowed to enter the hunting-free area, another guard writes down the animal species. Thus, each guard maintains a list of animal species, written down in the chronological order in which the animals have checked in or out. A total of NN animals, representing SS species, have checked in (and, therefore, checked out).</p> <p>However, animals may enter the waiting line and leave it in different orders. Indeed, some animal species are friends with each other, and thus two animals from such species, if they occupy adjacent places in the line may accept to switch their places.</p> <p>You have a list of those pairs of animal species that may accept to switch their places when being in adjacent positions in the line: this list contains L pairs. You were handed out the check-in list maintained by the first guard. Depending on which animals decided to switch places, several check-out lists might be possible. Among all those possible lists, which one comes first in alphabetical order?</p> <p>给你S个物种，L个朋友关系，相邻且是朋友关系的两个可以互换位置，对N个动物排序使其字典序最小</p> <p>不能换位置的即为约束关系，建有向边，同时每个动物只要考虑与它前面动物的约束关系</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#include &lt;bits/stdc++.h&gt;
+template&lt;typename T&gt;
+inline void read(T&amp; x) { x = 0; char c = getchar(); while (!isdigit(c))c = getchar(); while (isdigit(c)) { x = x * 10 + c - '0'; c = getchar(); } }
+#define si(a) read(a)
+#define sii(a,b) read(a),read(b)
+#define siii(a,b,c) read(a),read(b),read(c)
+#define fl double
+#define ll long long int
+#define ull unsigned long long int
+#define T ll
+using namespace std;
+const ll MOD = 1e9 + 7;
+//const int N = 2e5 + 10;//                       这个容易改的啊！！！！！！！
+//int gcd(int a, int b) { return a == 0 ? b : gcd(b % a, a); }
+ll gcd(ll a, ll b) { return a == 0 ? b : gcd(b % a, a); }
+int n, m;
+int S, L, N;
+vector&lt;string&gt;species(1);//这个1不能少
+map&lt;string, int&gt; mp;
+int Friend[210][210];//朋友关系
+int last[210];//同种物种间也有约束，所以不同物种的只用考虑它前面的
+vector&lt;int&gt;e[200010];//拓扑建图，有约束条件的建有向边
+int du[200010];//入度
+int Line[200010];//初始的排队序列
+int ans[200010];
+struct ani {
+	int sp, dex;//物种、在Line里的下标
+	friend bool operator &lt; (ani a, ani b) {
+		if (a.sp == b.sp)return a.dex &gt; b.dex;
+		return a.sp &gt; b.sp;
+	}//重载&lt;,按sp从小到大 or dex
+};
+priority_queue&lt;ani&gt; S_tp;
+void tuopu() {
+	for (int i = 1; i &lt;= N; i++)if (!du[i])S_tp.push({ Line[i],i });
+	int cnt = 0;
+	while (!S_tp.empty()) {
+		ani tmp = S_tp.top();
+		S_tp.pop();
+		ans[++cnt] = tmp.dex;
+		for (auto it : e[tmp.dex])
+			if (--du[it] == 0)S_tp.push({ Line[it],it });
+	}
+}
+void solve() {
+
+	siii(S, L, N);
+	for (int i = 1; i &lt;= S; i++) {
+		string tmp; cin &gt;&gt; tmp;//string 不能直接用 scanf
+		species.push_back(tmp);
+	}
+	sort(species.begin(), species.end());//这里要用begin()和end()
+	int tmp = 0;
+	for (auto it : species) mp[it] = tmp++;
+	for (int i = 1; i &lt;= L; i++) {
+		string x, y; cin &gt;&gt; x &gt;&gt; y;
+		Friend[mp[x]][mp[y]] = 1;
+		Friend[mp[y]][mp[x]] = 1;
+	}
+	for (int i = 1; i &lt;= N; i++) {
+		string tmp; cin &gt;&gt; tmp;
+		int id = mp[tmp];
+		Line[i] = id;
+		for (int j = 1; j &lt;= S; j++) {
+			if (Friend[id][j] || !last[j])
+				continue;
+			e[last[j]].push_back(i);
+			du[i]++;//入度加一
+		}
+		last[id] = i;
+	}
+	tuopu();
+	for (int i = 1; i &lt;= N; i++)cout &lt;&lt; species[Line[ans[i]]] &lt;&lt; ' ';
+}
+int main() {
+	int t;
+	t = 1;
+	//si(t);
+	while (t--)
+		solve();
+	return 0;
+}
+/*
+
+*/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br></div></div></div></article> <!----></div></main> <aside class="aside" data-v-b3fda33c data-v-b3fda33c><div class="info-card main-div" data-v-1311ce9e data-v-b3fda33c><div class="info-card-header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/blog/HP/back.JPG);" data-v-1311ce9e><img src="/blog/HP/logo-nav.png" alt="Akejyo" class="info-avatar" data-v-1311ce9e></div> <div class="info-card-body" data-v-1311ce9e><section class="info-name" data-v-1311ce9e>
+      Akejyo
+    </section> <section class="info-desc" data-v-1311ce9e>乘物以游心</section> <section class="info-contact" data-v-1311ce9e><!----> <!----> <section data-v-1311ce9e><span data-v-1311ce9e data-v-1311ce9e><svg class="icon" style="font-size:1em;" data-v-1311ce9e data-v-1311ce9e><use xlink:href="#icon-email" data-v-1311ce9e data-v-1311ce9e></use></svg><span class="info-text" data-v-1311ce9e data-v-1311ce9e>
+          987383393@qq.com
+        </span></span></section></section></div> <div class="info-card-footer" data-v-1311ce9e><p class="footer-sns-link" data-v-1311ce9e><a target="_blank" href="https://space.bilibili.com/252038787?spm_id_from=333.1007.0.0" class="sns-link" data-v-1311ce9e><span class="sns-icon" data-v-1311ce9e data-v-1311ce9e><svg class="icon" style="font-size:35px;" data-v-1311ce9e data-v-1311ce9e><use xlink:href="#icon-bilibili" data-v-1311ce9e data-v-1311ce9e></use></svg></span></a><a target="_blank" href="https://github.com/akejyo" class="sns-link" data-v-1311ce9e><span class="sns-icon" data-v-1311ce9e data-v-1311ce9e><svg class="icon" style="font-size:35px;" data-v-1311ce9e data-v-1311ce9e><use xlink:href="#icon-github" data-v-1311ce9e data-v-1311ce9e></use></svg></span></a><a target="_blank" href="https://www.zhihu.com/people/yu-pigeon" class="sns-link" data-v-1311ce9e><span class="sns-icon" data-v-1311ce9e data-v-1311ce9e><svg class="icon" style="font-size:35px;" data-v-1311ce9e data-v-1311ce9e><use xlink:href="#icon-zhihu" data-v-1311ce9e data-v-1311ce9e></use></svg></span></a></p></div></div> <div class="post-toc main-div aside-toc" style="position:relative;top:0;width:0px;" data-v-b3fda33c><h4>- CATALOG</h4> <!----></div></aside></div> <footer class="footer" data-v-7f2e4136><p class="footer-sns-link"><a target="_blank" href="https://space.bilibili.com/252038787?spm_id_from=333.1007.0.0" class="sns-link"><span class="sns-icon"><svg class="icon" style="font-size:40px;"><use xlink:href="#icon-bilibili"></use></svg></span></a><a target="_blank" href="https://github.com/akejyo" class="sns-link"><span class="sns-icon"><svg class="icon" style="font-size:40px;"><use xlink:href="#icon-github"></use></svg></span></a><a target="_blank" href="https://www.zhihu.com/people/yu-pigeon" class="sns-link"><span class="sns-icon"><svg class="icon" style="font-size:40px;"><use xlink:href="#icon-zhihu"></use></svg></span></a></p> <div class="copyright"><span id="custom">Copyright &copy; Akejyo 2022 <br /> 
+          Theme By <a href="https://www.vuepress.cn/" target="_blank">VuePress</a>
+          | <a href="https://www.github.com/youdeliang/" target="_blank">youdeliang</a></span> <iframe src="https://github.com/Akejyo/blog" frameborder="0" scrolling="0" width="80px" height="20px" class="footer-btn" style="margin-left: 2px; margin-bottom:-5px;"></iframe></div></footer></div><div class="global-ui"><!----><!----><canvas id="vuepress-canvas-cursor"></canvas><!----><div></div><!----></div></div>
+    <script src="/blog/assets/js/app.10530e5b.js" defer></script><script src="/blog/assets/js/7.3944018b.js" defer></script><script src="/blog/assets/js/44.0b4f7ef4.js" defer></script><script src="/blog/assets/js/4.bcd292e7.js" defer></script>
+  </body>
+</html>
